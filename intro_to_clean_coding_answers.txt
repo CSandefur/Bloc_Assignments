@@ -133,7 +133,7 @@ function findPerfectSquares(numberList){
 
 > 7 Duplicate Given an array of integers, find out whether the array contains any duplicate elements. The function should return true if any value appears at least twice in the array, and false if every element is distinct.
 
-function findDuplicates(numberList){
+function isDuplicate(numberList){
   for (let i = 0; i < numberList.length; i++){
     for (let j = i + 1; j < numberList.length; j++){
       if (numberList[i] === numberList[j]) {
