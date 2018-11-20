@@ -1,0 +1,22 @@
+1. 
+
+a) lineOrder = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+b) lineOrder.push("Mary");
+
+c) lineOrder.indexOf("Josh");
+
+d) lineOrder.indexOf("Emily"); 
+It should return -1 if it cannot be found. 
+
+e) lineOrder.splice(lineOrder.indexOf("Ava"), 0, "Melissa");
+
+f) lineOrder.splice(lineOrder.indexOf("Patrick"), 1);
+
+2. 
+
+Another real example could be something like a music playlist, which could be organized by an array. You have a list of songs on a playlist (an array), and they can be added or deleted, and the order can be changed. 
+
+3. 
+
+This would use in array, just like the above example. There are a ton of built-in methods for developers: you could search the playlist for given items, delete songs, change the order, check for duplicates, and so on. 
