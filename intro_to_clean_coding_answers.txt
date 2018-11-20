@@ -122,7 +122,7 @@ END
 
 function findPerfectSquares(numberList){
   var sum = numberList.reduce((total, amount) => total + amount);
-  if (sum % 1 === 0) {
+  if (Math.sqrt(sum) % 1 === 0) {
     return Math.sqrt(sum);
   }
   else {
