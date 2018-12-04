@@ -1,0 +1,82 @@
+1. What is the main difference between a stack and a queue?
+
+The main difference is the order in which they deal with items. Stacks are last-in-first-out, while queues are first-in-first-out.
+
+2. What are the similarities between stacks and queues?
+
+They are both data structures which allow you to organize your data in a way best suited to your particular situation, and they both restrict how you can access the data (should be only from the end or from either end, but not in the middle). 
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+Definitely the stack! You want to get to the last item you did or undid (so you need the last in first out). Let's say you made your text bold, then italic, then underlined. You want to undo. Do you want to undo by first in? So you have to go through bold, italic, and then underlined? Nope that wouldn't work. You'd want to undo the last thing you did, so undo underlined, then italic, then bold. 
+
+PROGRAMMING 
+
+1. 
+function reverse(original){
+  var stack = [];
+  for(let i = 0; i < original.length; i++){
+    stack.push(original.charAt(i));
+  }
+  
+  var reversed = '';
+  while(stack.length>=1){
+    reversed += stack.pop();
+  }
+  return reversed;
+}
+
+
+*I have a question on this one. I initially tried to use while(!stack.empty) instead of while(stack.length>=1). I was getting the reversed string, but I was also getting an unlimited amount of undefineds as part of the string, and I wasn't sure why that is!
+
+2. 
+
+class Queue {
+  constructor(){
+    this.data = [];
+  }
+  
+  enqueue(item) {
+    this.data.push(item);
+  }
+
+  dequeue() {
+    if(this.data.length >= 1) {
+      return this.data.shift();
+    } else {
+      return "Empty"
+    }
+  }
+
+  pop() {
+    var placeholder = [];
+    var lastElement = this.data[this.data.length -1];
+    for(let i = 0; i < this.data.length - 1; i++){
+      placeholder.push(this.data[i]);
+    }
+    this.data = placeholder;
+    console.log(this.data);
+    return lastElement;
+  }
+} 
+
+3. (These questions seem to be out of order - this should be number 2, because you use it to build out what is currently 2 (and should be 3)).
+
+class Queue {
+  constructor(){
+    this.data = [];
+  }
+  
+  enqueue(item) {
+    this.data.push(item);
+  }
+
+  dequeue() {
+    if(this.data.length >= 1) {
+      return this.data.shift();
+    } else {
+      return "Empty"
+    }
+  }
+}
+
