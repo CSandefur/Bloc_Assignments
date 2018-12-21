@@ -1,0 +1,151 @@
+
+Exercises
+
+1. Linked lists are much better on the  memory than arrays, and so can grow without the issues of arrays. Array items have to be next to each other in memory, but linked lists just have the addresses of the next item (node) in the list. Arrays are expensive, but linked lists can't be indexed, so you must start from the head of the list to search. 
+
+2. Could be like attractions in the zoo. You start at the beginning, and you can't use an index and go straight to one exhibit. You get to one and it has a sign that points to the next one, which you have to pass by before you get to the one after that. 
+
+
+Programming Questions
+
+1. This is setting our new node to the node after head, but what about nodes that already exist after head? This needs to be pushed to the very end of the list, after the tail. 
+
+class Node {
+  constructor(element) {
+    this.element = element;
+    this.next = null;
+  }
+}
+
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addNode(element) {
+    let node = new Node(element);
+    if(!this.head){
+      this.head = node;
+    } else {
+      var placeholder = this.head;
+      while(placeholder.next){
+        placeholder = placeholder.next;
+      }
+      placeholder.next = node;
+    }
+  }
+}
+
+var list = new LinkedList();
+
+list.addNode(2);
+list.addNode('a');
+console.log(list);
+
+2. 
+
+class Node {
+  constructor(element) {
+    this.element = element;
+    this.next = null;
+  }
+}
+
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  addNode(element) {
+    let node = new Node(element);
+    if(!this.head){
+      this.head = node;
+    } else {
+      var placeholder = this.head;
+      while(placeholder.next){
+        placeholder = placeholder.next;
+      }
+      placeholder.next = node;
+    }
+  }
+  
+  
+};
+
+
+function removeDuplicates(anyList){
+    if(!anyList.head || !anyList.head.next){
+      console.log("No duplicates");
+      return;
+    }
+
+    var mover;
+    var initializer;
+    var comparer;
+    var val;
+    initializer = anyList.head;
+
+    while (initializer) {
+      val = initializer.element;
+      mover = initializer;
+      comparer = mover.next;
+
+      while (comparer) {
+        if (comparer.element === val) {
+          mover.next = comparer.next;
+        } else {
+          mover = comparer;
+        }
+        comparer = comparer.next;
+      }
+
+      
+
+      initializer = initializer.next;
+     
+    }
+  }
+
+var list = new LinkedList();
+
+list.addNode(2);
+list.addNode(2);
+list.addNode(3);
+list.addNode(8);
+list.addNode(8);
+list.addNode(9);
+list.addNode(4);
+
+//console.log(list);
+
+removeDuplicates(list);
+console.log(list);
+console.log(list.head);
+console.log(list.head.next);
+
+
+3. 
+  function reverseList(anyList){
+    if(anyList.length < 2) {
+      return;
+    }
+
+    var previous;
+    var current = anyList.head;
+    var next;
+
+    while(current){
+      next = current.next;
+      current.next= previous;
+      previous = current;
+      current = next;
+    }
+
+    anyList.head = previous;
+
+  }
+
+var list = new LinkedList();
+
